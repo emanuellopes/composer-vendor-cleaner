@@ -9,7 +9,7 @@
     ]
   },
   "packages": {
-    "mediamonks\/composer-vendor-cleaner": {
+    "emanuellopes\/composer-vendor-cleaner": {
       "excludes": {
         "files": [
           "bin/clean",
