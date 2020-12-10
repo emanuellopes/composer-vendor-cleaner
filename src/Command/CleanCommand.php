@@ -163,22 +163,24 @@ class CleanCommand extends Command
         $finder = new Finder();
         $finder->in($this->baseDir)->directories();
         foreach (iterator_to_array($finder, false) as $dir) {
-            $isDirEmpty = !(new \FilesystemIterator($dir))->valid();
-            if ($isDirEmpty) {
-                try {
-                    $output->writeln(sprintf('Removing directory "%s"', $dir->getRealPath()),
-                        OutputInterface::VERBOSITY_NORMAL);
-                    if (!$this->dryRun) {
-                        $this->filesystem->remove($dir->getRealPath());
+            if ( ! is_link( $dir ) ) {
+                $isDirEmpty = !(new \FilesystemIterator($dir))->valid();
+                if ($isDirEmpty) {
+                    try {
+                        $output->writeln(sprintf('Removing directory "%s"', $dir->getRealPath()),
+                            OutputInterface::VERBOSITY_NORMAL);
+                        if (!$this->dryRun) {
+                            $this->filesystem->remove($dir->getRealPath());
+                        }
+                        $success++;
+                    } catch (\Exception $e) {
+                        $failed++;
+                        $output->writeln(
+                            sprintf('<error>Error removing directory "%s": "$s"</error>', $dir->getRealPath(),
+                                $e->getMessage()),
+                            OutputInterface::VERBOSITY_NORMAL
+                        );
                     }
-                    $success++;
-                } catch (\Exception $e) {
-                    $failed++;
-                    $output->writeln(
-                        sprintf('<error>Error removing directory "%s": "$s"</error>', $dir->getRealPath(),
-                            $e->getMessage()),
-                        OutputInterface::VERBOSITY_NORMAL
-                    );
                 }
             }
         }
