@@ -1,5 +1,5 @@
 {
-  "name": "mediamonks/composer-vendor-cleaner",
+  "name": "emanuellopes/composer-vendor-cleaner",
   "type": "library",
   "description": "Removes as much as possible from your vendor dir when space or number of files is important",
   "keywords": [
