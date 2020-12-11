@@ -5,7 +5,8 @@
       "^symfony\/phpunit",
       "^phpunit",
       "^mockery",
-      "^behat"
+      "^behat",
+      "nesbot/carbon"
     ]
   },
   "packages": {
@@ -27,66 +28,85 @@
     }
   },
   "custom":
-    [
-      {
-        "_comment": "Remove all unit test files and non used Resources from Symfony components",
-        "in": [
-          "symfony/*/Tests"
-        ]
-      },
-      {
-        "_comment": "Removes all non-php files from the roots of the Symfony framework",
-        "in": [
-          "symfony/symfony/src/Symfony/Bridge/",
-          "symfony/symfony/src/Symfony/Bundle/",
-          "symfony/symfony/src/Symfony/Component/",
-          "symfony/polyfill-*",
-          "symfony/*-bridge"
-        ],
-        "type": "files",
-        "notName": ["*.php"],
-        "depth": "<= 1"
-      },
-      {
-        "_comment": "Remove all unit test files from the Symfony framework",
-        "in": [
-          "symfony/symfony/src/Symfony/Bridge/*/Tests",
-          "symfony/symfony/src/Symfony/Bundle/*/Tests",
-          "symfony/symfony/src/Symfony/Component/*/Tests"
-        ]
-      },
-      {
-        "_comment": "Remove all non php and json files from the testing frameworks",
-        "in": [
-          "behat/*",
-          "phpunit/*",
-          "mockery/*"
-        ],
-        "type": "files",
-        "notName": ["*.php", "*.json"],
-        "depth": "<= 2"
-      },
-      {
-        "_comment": "Remove all folders which are famous for containing stuff we do not need",
-        "in": [
-          "*/*/doc",
-          "*/*/docs",
-          "*/*/tests",
-          "*/*/testapp",
-          "*/*/spec",
-          "*/*/features",
-          "*/*/Tests",
-          "*/*/examples"
-        ]
-      },
-      {
-        "_comment": "Remove all executables and git files which can get quite large",
-        "in": "",
-        "name": ["*.exe", "*.pack", "*.idx"]
-      },
-      {
-        "_comment": "Remove custom installed composer, it's usually only used for code completion in the IDE",
-        "in": ["composer/composer", "composer/semver", "composer/spdx-licenses"]
-      }
-    ]
+  [
+    {
+      "_comment": "Remove all .git files",
+      "in": [
+        "*/.git"
+      ]
+    },
+    {
+      "_comment": "Remove all unit test files and non used Resources from upstatement routes",
+      "in": [
+        "upstatement/routes/tests"
+      ]
+    },
+    {
+      "_comment": "Remove all unit test files and non used Resources from php-cs-fixer",
+      "in": [
+        "friendsofphp/php-cs-fixer/tests"
+      ]
+    },
+    {
+      "_comment": "Remove all unit test files and non used Resources from Symfony components",
+      "in": [
+        "symfony/*/Tests"
+      ]
+    },
+    {
+      "_comment": "Removes all non-php files from the roots of the Symfony framework",
+      "in": [
+        "symfony/symfony/src/Symfony/Bridge/",
+        "symfony/symfony/src/Symfony/Bundle/",
+        "symfony/symfony/src/Symfony/Component/",
+        "symfony/polyfill-*",
+        "symfony/*-bridge"
+      ],
+      "type": "files",
+      "notName": ["*.php"],
+      "depth": "<= 1"
+    },
+    {
+      "_comment": "Remove all unit test files from the Symfony framework",
+      "in": [
+        "symfony/symfony/src/Symfony/Bridge/*/Tests",
+        "symfony/symfony/src/Symfony/Bundle/*/Tests",
+        "symfony/symfony/src/Symfony/Component/*/Tests"
+      ]
+    },
+    {
+      "_comment": "Remove all non php and json files from the testing frameworks",
+      "in": [
+        "behat/*",
+        "phpunit/*",
+        "mockery/*"
+      ],
+      "type": "files",
+      "notName": ["*.php", "*.json"],
+      "depth": "<= 2"
+    },
+    {
+      "_comment": "Remove all folders which are famous for containing stuff we do not need",
+      "in": [
+        "*/*/doc",
+        "*/*/docs",
+        "*/*/tests",
+        "*/*/*/tests",
+        "*/*/testapp",
+        "*/*/spec",
+        "*/*/features",
+        "*/*/Tests",
+        "*/*/examples"
+      ]
+    },
+    {
+      "_comment": "Remove all executables and git files which can get quite large",
+      "in": "",
+      "name": ["*.exe", "*.pack", "*.idx"]
+    },
+    {
+      "_comment": "Remove custom installed composer, it's usually only used for code completion in the IDE",
+      "in": ["composer/composer", "composer/semver", "composer/spdx-licenses"]
+    }
+  ]
 }
