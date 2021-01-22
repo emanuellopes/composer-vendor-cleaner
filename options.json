@@ -19,6 +19,16 @@
         ]
       }
     },
+    "htmlburger\/carbon-fields": {
+      "excludes": {
+        "dirs": [
+          "build",
+          "languages",
+          "templates",
+          "assets"
+        ]
+      }
+    },
     "mobiledetect\/mobiledetectlib": {
       "excludes": {
         "files": [
@@ -27,8 +37,7 @@
       }
     }
   },
-  "custom":
-  [
+  "custom": [
     {
       "_comment": "Remove all .git files",
       "in": [
@@ -39,6 +48,12 @@
       "_comment": "Remove all unit test files and non used Resources from upstatement routes",
       "in": [
         "upstatement/routes/tests"
+      ]
+    },
+    {
+      "_comment": "Remove phpstorm files from carbonfields",
+      "in": [
+        "htmlburger/carbon-fields/.phpstorm.meta.php"
       ]
     },
     {
@@ -63,7 +78,9 @@
         "symfony/*-bridge"
       ],
       "type": "files",
-      "notName": ["*.php"],
+      "notName": [
+        "*.php"
+      ],
       "depth": "<= 1"
     },
     {
@@ -82,7 +99,10 @@
         "mockery/*"
       ],
       "type": "files",
-      "notName": ["*.php", "*.json"],
+      "notName": [
+        "*.php",
+        "*.json"
+      ],
       "depth": "<= 2"
     },
     {
@@ -102,11 +122,19 @@
     {
       "_comment": "Remove all executables and git files which can get quite large",
       "in": "",
-      "name": ["*.exe", "*.pack", "*.idx"]
+      "name": [
+        "*.exe",
+        "*.pack",
+        "*.idx"
+      ]
     },
     {
       "_comment": "Remove custom installed composer, it's usually only used for code completion in the IDE",
-      "in": ["composer/composer", "composer/semver", "composer/spdx-licenses"]
+      "in": [
+        "composer/composer",
+        "composer/semver",
+        "composer/spdx-licenses"
+      ]
     }
   ]
 }
