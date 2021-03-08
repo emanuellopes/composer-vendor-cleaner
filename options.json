@@ -3,6 +3,7 @@
     "packages": [
       "^symfony\/polyfill-",
       "^symfony\/phpunit",
+      "^symfony\/var-dumper",
       "^phpunit",
       "^mockery",
       "^behat",
