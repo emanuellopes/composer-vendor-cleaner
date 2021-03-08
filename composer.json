@@ -10,12 +10,12 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Robert Slootjes",
-      "email": "robert@mediamonks.com"
-    },
-    {
       "name": "Emanuel Lopes",
       "email": "emanuel.lopes.pt@gmail.com"
+    },
+    {
+      "name": "Robert Slootjes",
+      "email": "robert@mediamonks.com"
     }
   ],
   "require": {
