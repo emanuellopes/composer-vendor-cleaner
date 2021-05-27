@@ -33,7 +33,7 @@
     "lynxes/nc.wordpress.core.framework": {
       "excludes": {
         "dirs": [
-          "build",
+          "build"
         ]
       }
     },
