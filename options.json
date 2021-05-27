@@ -30,6 +30,13 @@
         ]
       }
     },
+    "lynxes/nc.wordpress.core.framework": {
+      "excludes": {
+        "dirs": [
+          "build",
+        ]
+      }
+    },
     "mobiledetect\/mobiledetectlib": {
       "excludes": {
         "files": [
